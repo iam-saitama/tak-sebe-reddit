@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы и ответы</title>
+</head>
+<body>
+    <h1>Вопросы</h1>
+    <a href="{{ url_for('ask') }}">Задать вопрос</a>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <h2>{{ question }}</h2>
+                <a href="{{ url_for('answer', question_id=loop.index0) }}">Ответить</a>
+                <ul>
+                    {% for answer in answers[loop.index0] %}
+                        <li>{{ answer }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
