@@ -11,11 +11,11 @@
     <ul>
         {% for question in questions %}
             <li>
-                <h2>{{ question }}</h2>
-                <a href="{{ url_for('answer', question_id=loop.index0) }}">Ответить</a>
+                <h2>{{ question['content'] }}</h2>
+                <a href="{{ url_for('answer', question_id=question['id']) }}">Ответы</a>
                 <ul>
-                    {% for answer in answers[loop.index0] %}
-                        <li>{{ answer }}</li>
+                    {% for answer in question['answers'] %}
+                        <li>{{ answer['content'] }}</li>
                     {% endfor %}
                 </ul>
             </li>

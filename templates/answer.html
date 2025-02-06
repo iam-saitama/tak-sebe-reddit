@@ -7,10 +7,16 @@
 </head>
 <body>
     <h1>Ответить на вопрос</h1>
-    <h2>{{ question }}</h2>
+    <h2>{{ question['content'] }}</h2>
     <form method="POST">
         <textarea name="content" rows="4" cols="50" required></textarea><br>
         <button type="submit">Отправить</button>
     </form>
+    <h3>Ответы:</h3>
+    <ul>
+        {% for answer in answers %}
+            <li>{{ answer['content'] }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

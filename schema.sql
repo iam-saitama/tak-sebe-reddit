@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS question (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS answer (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL,
+    question_id INTEGER NOT NULL,
+    FOREIGN KEY (question_id) REFERENCES question (id)
+);
